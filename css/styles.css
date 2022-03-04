@@ -1,0 +1,136 @@
+/* Tag Selectors */
+
+* {
+  font-family: Copperplate;
+  text-transform: capitalize;
+}
+
+/* unvisited link */
+a:link, a:visited, a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+body {
+  background-color: #E5D5B55A;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+hr {
+  border-color: #C1122B;
+  border-style: none;
+  border-top-style: dotted;
+  border-width: 8px;
+  width: 7%;
+}
+
+/* Class Selectors */
+
+.logo {
+   height: 200px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.MenuItem {
+  text-align: center;
+  font-size: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20%;
+}
+
+.ButtomBarItem {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.ButtomBarImg {
+  height: 40px;
+  width: 40px;
+}
+
+.Index-Top-WelcomingMessage {
+
+}
+
+.Index-Middle-PhotosSlides {
+
+}
+
+
+
+.About-Top-AboutUs {
+
+}
+
+.About-Bottom-ContactUs {
+
+}
+
+
+.RegisterationInfo {
+  font-size: 20px;
+}
+
+.RegisterationForms.TextField {
+  height: 20px;
+  width: 30%;
+}
+
+.RegisterationForms.SubmitButton {
+  background-color: #C1122B;
+  color: white;
+  font-size: 20px;
+  height: 40px;
+  width: 30%;
+}
+
+.TutorialsForms.TextField {
+  width: 20%;
+}
+
+/* ID Selectors */
+
+#logoTable {
+   background-color: #C1122B;
+   width: 100%;
+}
+
+#NavBarTable {
+  background-color: #E5D5B5;
+  width: 100%;
+}
+
+#ButtomBarTable {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#Index-Top-WelcomingMessage-H1 {
+  font-size: 250%
+}
+
+#ContactUs-Table {
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
