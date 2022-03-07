@@ -33,8 +33,72 @@
     </div>
 
     <!--Content of the past events page: -->
+    <div class="PastEvents_PB">
+      <h1>~ Past Events ~</h1>
+      <p>Paintball</p>
+      <p class="subtext">Date: 04/14/2019 &emsp; Location: Giant Paintball Park</p>
+    </div>
 
+    <div class="slideshow-container">
+      <div class="paintball">
+        <img src="images/pb1.png" style="width:100%">
+      </div>
 
+      <div class="paintball">
+        <img src="images/pb2.png" style="width:100%">
+      </div>
+
+      <div class="paintball">
+        <img src="images/pb3.png" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </div>
+
+    <div class="PastEvents_Eid">
+      <p>Eid-ul-Adha</p>
+      <p class="subtext">Date: 09/01/2017 &emsp; Location: Town and Country Resort</p>
+    </div>
+
+    <div class="slideshow-container">
+      <div class="eid">
+        <img src="images/eid1.png" style="width:100%">
+      </div>
+
+      <div class="eid">
+        <img src="images/eid2.png" style="width:100%">
+      </div>
+
+      <div class="eid">
+        <img src="images/eid3.png" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+    </div>
+
+    <script>
+      var slideIndex = [1,1];
+      var slideId = ["paintball", "eid"]
+      showSlides(1, 0);
+      showSlides(1, 1);
+
+      function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
+      }
+
+      function showSlides(n, no) {
+        var i;
+        var x = document.getElementsByClassName(slideId[no]);
+        if (n > x.length) {slideIndex[no] = 1}    
+        if (n < 1) {slideIndex[no] = x.length}
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";  
+        }
+        x[slideIndex[no]-1].style.display = "block";  
+      }
+    </script>
 
     <!--"MASTER PAGE" - The bottom bar, including SDSU & SACM logos and social media icons: -->
     <div class="BottomPage">
