@@ -41,9 +41,36 @@
 
 
     <!--Photos Slides: -->
-    <div class="Index-Middle-PhotosSlides">
-      <h1>< PhotosSlides ></h1>
+    <div class="slideshow-container">
+      <div class="home fade">
+        <img class = "slideshow" src="images/pb1.png" style="width:100%">
+      </div>
+
+      <div class="home fade">
+        <img class = "slideshow" src="images/pb4.png" style="width:100%">
+      </div>
+
+      <div class="home fade">
+        <img class = "slideshow" src="images/eid2.png" style="width:100%">
+      </div>
     </div>
+
+    <script>
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("home");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 4000); // Change image every 2 seconds
+      }
+    </script>
 
     <!--"MASTER PAGE" - The bottom bar, including SDSU & SACM logos and social media icons: -->
     <div class="BottomPage">
