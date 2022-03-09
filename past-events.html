@@ -23,11 +23,11 @@
       <table id="NavBarTable">
         <tr>
           <td class="MenuItem"><a href="index.html">Home</a></td>
-          <td class="MenuItem"><a href="about.html">About</a></td>
           <td class="MenuItem"><a href="registeration.html">Registeration</a></td>
           <td class="MenuItem"><a href="past-events.html">Past Events</a></td>
           <td class="MenuItem"><a href="upcoming-events.html">Upcoming Events</a></td>
           <td class="MenuItem"><a href="tutorials.html">Tutorials</a></td>
+          <td class="MenuItem"><a href="about.html">About</a></td>
         </tr>
       </table>
     </div>
@@ -35,8 +35,9 @@
     <!--Content of the past events page: -->
     <div class="PastEvents_PB">
       <h1>~ Past Events ~</h1>
-      <p>Paintball</p>
+      <h2>Paintball</h2>
       <p class="subtext">Date: 04/14/2019 &emsp; Location: Giant Paintball Park</p>
+      <p>Breif Description and details about the event</p>
     </div>
 
     <div class="slideshow-container">
@@ -56,9 +57,13 @@
       <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
     </div>
 
+    <br>
+    <hr>
+
     <div class="PastEvents_Eid">
-      <p>Eid-ul-Adha</p>
+      <h2>Eid Al-Adha</h2>
       <p class="subtext">Date: 09/01/2017 &emsp; Location: Town and Country Resort</p>
+      <p>Breif Description and details about the event</p>
     </div>
 
     <div class="slideshow-container">
@@ -91,12 +96,12 @@
       function showSlides(n, no) {
         var i;
         var x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) {slideIndex[no] = 1}    
+        if (n > x.length) {slideIndex[no] = 1}
         if (n < 1) {slideIndex[no] = x.length}
         for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";  
+           x[i].style.display = "none";
         }
-        x[slideIndex[no]-1].style.display = "block";  
+        x[slideIndex[no]-1].style.display = "block";
       }
     </script>
 
