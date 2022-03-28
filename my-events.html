@@ -1,223 +1,307 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Past Events</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+<head>
+  <meta charset="utf-8">
+  <title>Past Events</title>
 
-    <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/styles.css">
 
-  </head>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/dataTables.bootstrap.css">
 
-  <body>
+  <link rel="icon" href="favicon.ico">
 
-    <!-- Sign In Modal -->
-    <div id="id01" class="modal">
+</head>
 
-      <form class="modal-content animate" action="/action_page.php" method="post">
+<body>
 
-        <div class="imgcontainer">
+  <!-- Sign In Modal -->
+  <div id="id01" class="modal">
 
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="images/sscsdsu-logo.png" alt="SSCSDSU Logo" class="avatar">
+    <form class="modal-content animate" action="/action_page.php" method="post">
 
-        </div>
+      <div class="imgcontainer">
 
-        <div class="container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/sscsdsu-logo.png" alt="SSCSDSU Logo" class="avatar">
 
-          <label for="email"><b>Email:</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password:</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <br><br>
-
-          <button type="submit">Login</button>
-
-          <br><br>
-
-          <a class="psw" href="#">Forgot Password?</a>
-          <span class="createAccount" onclick="document.getElementById('id01').style.display='none'; document.getElementById('id02').style.display='block'" style="width:auto;">Not a Member?</span>
-
-        </div>
-
-      </form>
-
-    </div>
-
-    <!-- Sign Up Modal -->
-    <div id="id02" class="modal">
-
-      <form class="modal-content animate" action="/action_page.php" method="post">
-
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="images/sscsdsu-logo.png" alt="SSCSDSU Logo" class="avatar">
-
-        </div>
-
-        <div class="container">
-
-          <label for="email"><b>Email:</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password:</b></label>
-          <input type="password" placeholder="Enter Password" id="psw" required>
-
-          <label for="confirm-psw"><b>Confirm Password:</b></label>
-          <input type="password" placeholder="Confirm Password" id="confirm-psw" required>
-
-          <br><br>
-
-          <button type="submit">Create Account</button>
-
-        </div>
-
-      </form>
-
-    </div>
-
-    <script src="login.js"></script>
-
-    <!--"MASTER PAGE" - The Top Menu, including the logo and links to other pages: -->
-    <div class="TopPage">
-      <table id="logoTable">
-        <tr>
-            <td class="LoginButton">
-              <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-            </td>
-        </tr>
-        <tr>
-          <td><a href="index.html"><img class="logo" src="images/sscsdsu-logo.png" alt="SSCSDSU Logo"></a></td>
-        </tr>
-      </table>
-
-      <table id="NavBarTable">
-        <tr>
-          <td class="MenuItem"><a href="index.html">Home</a></td>
-          <td class="MenuItem"><a href="my-events.html">My Events</a></td>
-          <td class="MenuItem"><a href="past-events.html">Past Events</a></td>
-          <td class="MenuItem"><a href="upcoming-events.html">Upcoming Events</a></td>
-          <td class="MenuItem"><a href="tutorials.html">Tutorials</a></td>
-          <td class="MenuItem"><a href="about.html">About</a></td>
-        </tr>
-      </table>
-    </div>
-
-    <!--Content of the past events page: -->
-    <div class="Upcoming_evemts">
-      <h1>~ My Upcoming Events ~</h1>
-      <h2>Game Night</h2>
-      <p class="subtext">Date: 02/19/2022 &emsp; Location: Aztec Student Union</p>
-      <p>
-        Join Us at "aztec student union - legacy suite" for a game night!<br>
-        Don't miss out the three competitve tournaments:<br>
-        1. FIFA 22 - PS5<br>
-        2. Baloot<br>
-        3. Chess<br>
-        There will be valuable prizes for the winners of each tournament!!
-      </p>
-      <img class = "slideshow" src="images/upcoming.png" style="width:50%">
-
-    </div>
-
-    <br>
-    <hr>
-
-    <div class="PastEvents_PB">
-      <h1>~ Past Events ~</h1>
-      <h2>Paintball</h2>
-      <p class="subtext">Date: 04/14/2019 &emsp; Location: Giant Paintball Park</p>
-      <p>
-        A day filled with action!<br>
-        Ruthless, intense, and competitve atmosphere is the key to enjoy paintball.<br>
-        and that exactly how we felt during this unforgettable event!
-      </p>
-    </div>
-
-    <div class="slideshow-container">
-      <div class="paintball">
-        <img class = "slideshow" src="images/pb1.png" style="width:100%">
       </div>
 
-      <div class="paintball">
-        <img class = "slideshow" src="images/pb2.png" style="width:100%">
+      <div class="container">
+
+        <label for="email"><b>Email:</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <br><br>
+
+        <button type="submit">Login</button>
+
+        <br><br>
+
+        <a class="psw" href="#">Forgot Password?</a>
+        <span class="createAccount" onclick="document.getElementById('id01').style.display='none'; document.getElementById('id02').style.display='block'" style="width:auto;">Not a Member?</span>
+
       </div>
 
-      <div class="paintball">
-        <img class = "slideshow" src="images/pb3.png" style="width:100%">
+    </form>
+
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="id02" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php" method="post">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/sscsdsu-logo.png" alt="SSCSDSU Logo" class="avatar">
+
       </div>
 
-      <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+      <div class="container">
+
+        <label for="email"><b>Email:</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" id="psw" required>
+
+        <label for="confirm-psw"><b>Confirm Password:</b></label>
+        <input type="password" placeholder="Confirm Password" id="confirm-psw" required>
+
+        <br><br>
+
+        <button type="submit">Create Account</button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <script src="login.js"></script>
+
+  <!--"MASTER PAGE" - The Top Menu, including the logo and links to other pages: -->
+  <div class="TopPage">
+    <table id="logoTable">
+      <tr>
+        <td class="LoginButton">
+          <label style="height: 34px"></label>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="index.html"><img class="logo" src="images/sscsdsu-logo.png" alt="SSCSDSU Logo"></a></td>
+      </tr>
+    </table>
+
+    <table id="NavBarTable">
+      <tr>
+        <td class="MenuItem"><a href="index.html">Home</a></td>
+        <td class="MenuItem"><a href="my-events.html">My Events</a></td>
+        <td class="MenuItem"><a href="past-events.html">Past Events</a></td>
+        <td class="MenuItem"><a href="upcoming-events.html">Upcoming Events</a></td>
+        <td class="MenuItem"><a href="tutorials.html">Tutorials</a></td>
+        <td class="MenuItem"><a href="about.html">About</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <br>
+  <!--Content of the past events page: -->
+  <div class="Upcoming_events">
+    <h2><a href="#updateWithUpcoming"><span class="MyEventsSpan">My Upcoming Events</span></a> | <a href="#updateWithPast"><span class="MyEventsSpan" onclick="##">My Past Events &emsp;&emsp;</span></a> </h2>
+
+  </div>
+
+  <br>
+  <hr>
+
+  <div class="Container" style="text-align: left; padding-left: 20px; padding-right: 20px;">
+    <div class="Rows">
+      <div class="Columns">
+        <table id="example" class="table table-striped" style="width:100%; text-align: center;">
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Avg. Rating</th>
+              <th>Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Eid Al-Adha</td>
+              <td>09/01/2017</td>
+              <td>Town And Country Resort</td>
+              <td>8.1/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="submit" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Paintball</td>
+              <td>04/14/2019</td>
+              <td>Giant Paintball Park</td>
+              <td>9/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Game Night</td>
+              <td>02/19/2022</td>
+              <td>Aztec Student Union</td>
+              <td>6.7/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Eid Al-Adha</td>
+              <td>09/01/2017</td>
+              <td>Town And Country Resort</td>
+              <td>8.1/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Paintball</td>
+              <td>04/14/2019</td>
+              <td>Giant Paintball Park</td>
+              <td>9/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Game Night</td>
+              <td>02/19/2022</td>
+              <td>Aztec Student Union</td>
+              <td>6.7/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>Eid Al-Adha</td>
+              <td>09/01/2017</td>
+              <td>Town And Country Resort</td>
+              <td>8.1/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Paintball</td>
+              <td>04/14/2019</td>
+              <td>Giant Paintball Park</td>
+              <td>9/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Game Night</td>
+              <td>02/19/2022</td>
+              <td>Aztec Student Union</td>
+              <td>6.7/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>Eid Al-Adha</td>
+              <td>09/01/2017</td>
+              <td>Town And Country Resort</td>
+              <td>8.1/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Paintball</td>
+              <td>04/14/2019</td>
+              <td>Giant Paintball Park</td>
+              <td>9/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Game Night</td>
+              <td>02/19/2022</td>
+              <td>Aztec Student Union</td>
+              <td>6.7/10</td>
+              <td>
+                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
+                  <input type="button" name="Review" value="Review">
+                </form>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
-    <br>
-    <hr>
+  </div>
 
-    <div class="PastEvents_Eid">
-      <h2>Eid Al-Adha</h2>
-      <p class="subtext">Date: 09/01/2017 &emsp; Location: Town and Country Resort</p>
-      <p>
-        Good vibes, great food, and awesome people!<br>
-        Since Eid Al-Adha is one of the two main holidays in Saudi Arabia.<br>
-        We had a blast celeberating this sensational occasion with our students at SDSU.
-      </p>
-    </div>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 
-    <div class="slideshow-container">
-      <div class="eid">
-        <img class = "slideshow" src="images/eid1.png" style="width:100%">
-      </div>
+  <br>
 
-      <div class="eid">
-        <img class = "slideshow" src="images/eid2.png" style="width:100%">
-      </div>
+  <!--"MASTER PAGE" - The bottom bar, including SDSU & SACM logos and social media icons: -->
+  <div class="BottomPage">
+    <table id="ButtomBarTable" cellspacing="10">
+      <tr>
+        <td class="ButtomBarItem"><a href="https://twitter.com/sscsdsu"><img class="ButtomBarImg" src="images/twitter.png" alt="Twitter Link"></a></td>
+        <td class="ButtomBarItem"><a href="https://www.instagram.com/sscsdsu/"><img class="ButtomBarImg" src="images/instagram.png" alt="Instagram Link"></a></td>
+        <td class="ButtomBarItem"><img class="ButtomBarImg" src="images/vertical-line.png" alt="Line"></td>
+        <td class="ButtomBarItem"><a href="https://www.sdsu.edu"><img class="ButtomBarImg" src="images/sdsu-logo.png" alt="SDSU Link" style="width: 170px"></a></td>
+        <td class="ButtomBarItem"><a href="http://www.sacm.org"><img class="ButtomBarImg" src="images/sacm-clubs-logo.png" alt="SACM Link" style="width: 100px"></a></td>
+      </tr>
+    </table>
+  </div>
 
-      <div class="eid">
-        <img class = "slideshow" src="images/eid3.png" style="width:100%">
-      </div>
 
-      <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-    </div>
+</body>
 
-    <script>
-      var slideIndex = [1,1];
-      var slideId = ["paintball", "eid"]
-      showSlides(1, 0);
-      showSlides(1, 1);
-
-      function plusSlides(n, no) {
-        showSlides(slideIndex[no] += n, no);
-      }
-
-      function showSlides(n, no) {
-        var i;
-        var x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) {slideIndex[no] = 1}
-        if (n < 1) {slideIndex[no] = x.length}
-        for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";
-        }
-        x[slideIndex[no]-1].style.display = "block";
-      }
-    </script>
-
-    <!--"MASTER PAGE" - The bottom bar, including SDSU & SACM logos and social media icons: -->
-    <div class="BottomPage">
-      <table id="ButtomBarTable" cellspacing="10">
-        <tr>
-          <td class="ButtomBarItem"><a href="https://twitter.com/sscsdsu"><img class="ButtomBarImg" src="images/twitter.png" alt="Twitter Link"></a></td>
-          <td class="ButtomBarItem"><a href="https://www.instagram.com/sscsdsu/"><img class="ButtomBarImg" src="images/instagram.png" alt="Instagram Link"></a></td>
-          <td class="ButtomBarItem"><img class="ButtomBarImg" src="images/vertical-line.png" alt="Line"></td>
-          <td class="ButtomBarItem"><a href="https://www.sdsu.edu"><img class="ButtomBarImg" src="images/sdsu-logo.png" alt="SDSU Link" style="width: 170px"></a></td>
-          <td class="ButtomBarItem"><a href="http://www.sacm.org"><img class="ButtomBarImg" src="images/sacm-clubs-logo.png" alt="SACM Link" style="width: 100px"></a></td>
-        </tr>
-      </table>
-    </div>
-
-  </body>
 </html>

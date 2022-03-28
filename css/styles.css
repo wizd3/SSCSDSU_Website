@@ -160,7 +160,7 @@ img.slideshow {
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.SlidePrev, .SlideNext {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -179,18 +179,18 @@ img.slideshow {
   background-color: #717171;
 }
 
-.prev {
+.SlidePrev {
   left: 0;
 }
 
 /* Position the "next button" to the right */
-.next {
+.SlideNext {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a grey background color */
-.prev:hover, .next:hover {
+.SlidePrev:hover, .SlideNext:hover {
   background-color: #f1f1f1;
   color: black;
 }
@@ -323,6 +323,12 @@ img.avatar {
 .close:focus {
   color: #C1122B;
   cursor: pointer;
+}
+
+
+.MyEventsSpan:hover, .MyEventsSpan:focus {
+    color: #C1122B;
+    cursor: pointer;
 }
 
 /* Add Zoom Animation */
