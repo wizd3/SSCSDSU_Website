@@ -41,6 +41,9 @@ hr {
 .LoginButton {
   text-align: left;
 }
+.LogoutButton {
+  text-align: left;
+}
 
 .logo {
   height: 200px;
