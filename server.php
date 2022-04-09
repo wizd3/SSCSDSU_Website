@@ -4,7 +4,6 @@ session_start();
 
 // initializing variables
 $username = "";
-$email = "";
 $errors = array();
 
 include("config.php");
@@ -24,8 +23,7 @@ if (isset($_POST['login_user'])) {
 	if (mysqli_num_rows($results) == 1) {
     $row = $results->fetch_array(MYSQLI_ASSOC);
     $_SESSION['username'] = $row["firstname"];
-	  $_SESSION['email'] = $email;
-	  // header('location: index.php');
+    $_SESSION['userid'] = $row["userid"];
 	}else {
 		alert("Wrong email/password combination");
 	}
@@ -53,19 +51,44 @@ if (isset($_POST['register_user'])) {
   else {
   	$query = "INSERT INTO users (firstname, lastname, email, password)
   			  VALUES('$firstname', '$lastname', '$email', '$psw')";
-  	$ver = mysqli_query($db, $query);
-    // alert($db);
-    // alert($query);
-    // alert($ver);
+  	$result = mysqli_query($db, $query);
   	$_SESSION['username'] = $firstname;
-  	// header('location: index.php');
+    $_SESSION['userid'] = mysqli_insert_id($db);
   }
+
+// Add the user to all upcoming events to userevents table
+$event_register = "SELECT eventid FROM events WHERE upcoming=1";
+$result = mysqli_query($db, $event_register);
+
+while ($row = $result->fetch_array(MYSQLI_NUM)) {
+  $event_id = $row[0];
+  $query = "INSERT INTO userevents (userid, eventid, upcoming, registered)
+        VALUES('{$_SESSION['userid']}', '$event_id', '1', '0')";
+  mysqli_query($db, $query);
+}
+
 }
 
 // logout
 if (isset($_POST['logout_user'])) {
   session_destroy();
   unset($_SESSION['username']);
+  unset($_SESSION['userid']); 
   header("location: index.php");
+}
+
+
+//Register for event
+if (isset($_POST['Register-upcoming'])) {
+  $event_id = (int)$_POST['event_id'];
+  $query = "UPDATE userevents set registered = 1 WHERE userid = {$_SESSION['userid']} AND eventid = $event_id";
+  $result = mysqli_query($db, $query);
+}
+
+//Deregister for event
+if (isset($_POST['Deregister-upcoming'])) {
+  $event_id = (int)$_POST['event_id'];
+  $query = "UPDATE userevents set registered = 0 WHERE userid = {$_SESSION['userid']} AND eventid = $event_id";
+  $result = mysqli_query($db, $query);
 }
 ?>

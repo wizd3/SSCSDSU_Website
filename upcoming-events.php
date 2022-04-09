@@ -17,29 +17,55 @@
 
     <!--Content of the upcoming events page: -->
 
-    <div class="Upcoming_evemts">
+    <div class="Upcoming_events" style="text-align: center;">
       <h1>~ Upcoming Events ~</h1>
       <hr>
-      <h2>Game Night</h2>
-
-      <p class="subtext">Date: 02/19/2022 &emsp; Location: Aztec Student Union</p>
-      <p>
-        Join Us at "aztec student union - legacy suite" for a game night!<br>
-        Don't miss out the three competitve tournaments:<br>
-        1. FIFA 22 - PS5<br>
-        2. Baloot<br>
-        3. Chess<br>
-        There will be valuable prizes for the winners of each tournament!!<br>
-        <form class="Events-Registeration" action="/action_page.php" method="post">
-          <input type="submit" id="Register-GameNight" name="Register-GameNight" value="Register" style="width: 250px; height: 30px;">
-        </form>
-      </p>
-      <img class = "slideshow" src="images/upcoming.png" style="width:50%">
-
-      <br><br>
+      <?php 
+        // Load all upcoming events and check whether user is registered or not
+        $query = "SELECT * FROM events WHERE upcoming=1";
+        $upcoming_events = mysqli_query($db, $query);
+        while ($row = $upcoming_events->fetch_array(MYSQLI_NUM)) {
+          $event_id = $row[0];
+          $event_name = $row[1];
+          $event_details = $row[2];
+          $event_date = $row[3];
+          $event_location = $row[4];
+          $image = $row[6];
+          ?>
+          <h2> <?php echo $event_name; ?> </h2>
+          <p class="subtext">Date: <?php echo $event_date; ?> &emsp; Location: <?php echo $event_location; ?> </p>
+          <p>
+            <?php echo $event_details; ?>
+            <?php if( isset($_SESSION['userid'])){
+                    $query = "SELECT * FROM userevents WHERE userid={$_SESSION['userid']} AND registered = 0";
+                    $not_registered = mysqli_query($db, $query);
+                    if (mysqli_num_rows($not_registered) == 1) {
+                      ?> 
+                      <form class="Events-Registeration" action = "" method = "post">
+                        <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
+                        <input type="submit" name="Register-upcoming" value="Register" style="width: 250px; height: 30px;">
+                      </form>
+                      <?php
+                    }
+                    else{
+                      ?>
+                      <form class="Events-Registeration" action = "" method = "post">
+                        <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
+                        <input type="submit" name="Deregister-upcoming" value="Deregister" style="width: 250px; height: 30px;">
+                      </form>
+                      <?php
+                    }
+                  }
+            ?>
+          </p>
+          <img class = "slideshow" src= "<?php echo $image; ?>" style="width:50%">
+          <br><br>
+        <?php
+        }
+      ?>
       <hr>
 
-      <p class="subtext">Create an Account to be notified of upcoming events.</p>
+      <p class="subtext">Create an Account to register for upcoming events.</p>
     </div>
 
 
