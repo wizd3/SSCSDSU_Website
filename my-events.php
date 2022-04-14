@@ -5,16 +5,41 @@
   <meta charset="utf-8">
   <title>Past Events</title>
 
-  <link rel="stylesheet" href="css/styles.css">
-
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+
+  <link rel="stylesheet" href="css/styles.css">
 
   <link rel="icon" href="favicon.ico">
 
 </head>
 
 <body>
+
+  <!-- Rate Modal -->
+  <div id="id03" class="modal">
+
+    <form class="modal-content animate" action="" method="post">
+
+      <div class="container" style="text-align: center;">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <br>
+        <label for="quantity"><b>Rate The Event:</b></label>
+        <h6>(Out of 10)</h6>
+
+        <input type="number" id="quantity" name="quantity" min="0" max="10" style="width: 200px;">
+
+        <br><br>
+
+        <button type="submit" class="btn" name="rate" style="width:300px; background-color: #C1122B; color: #E5D5B5;">Rate</button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
   <!--Navigation Bar -->
   <?php include 'navbar.php';?>
 
@@ -38,7 +63,7 @@
               <th>Date</th>
               <th>Location</th>
               <th>Avg. Rating</th>
-              <th>Review</th>
+              <th>My Rate</th>
             </tr>
           </thead>
           <tbody>
@@ -48,9 +73,7 @@
               <td>Town And Country Resort</td>
               <td>8.1/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="submit" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -59,9 +82,7 @@
               <td>Giant Paintball Park</td>
               <td>9/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -70,9 +91,7 @@
               <td>Aztec Student Union</td>
               <td>6.7/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
 
@@ -82,9 +101,7 @@
               <td>Town And Country Resort</td>
               <td>8.1/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -93,9 +110,7 @@
               <td>Giant Paintball Park</td>
               <td>9/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -104,22 +119,16 @@
               <td>Aztec Student Union</td>
               <td>6.7/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
-
-
             <tr>
               <td>Eid Al-Adha</td>
               <td>09/01/2017</td>
               <td>Town And Country Resort</td>
               <td>8.1/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -128,9 +137,7 @@
               <td>Giant Paintball Park</td>
               <td>9/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
             <tr>
@@ -139,44 +146,7 @@
               <td>Aztec Student Union</td>
               <td>6.7/10</td>
               <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td>Eid Al-Adha</td>
-              <td>09/01/2017</td>
-              <td>Town And Country Resort</td>
-              <td>8.1/10</td>
-              <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>Paintball</td>
-              <td>04/14/2019</td>
-              <td>Giant Paintball Park</td>
-              <td>9/10</td>
-              <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>Game Night</td>
-              <td>02/19/2022</td>
-              <td>Aztec Student Union</td>
-              <td>6.7/10</td>
-              <td>
-                <form class="ReviewButton" action="#" method="post" style="text-align: center;">
-                  <input type="button" name="Review" value="Review">
-                </form>
+                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
               </td>
             </tr>
 

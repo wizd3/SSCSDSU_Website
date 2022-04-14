@@ -1,4 +1,4 @@
-    <?php include 'server.php';?>
+<?php include 'server.php';?>
 
     <!-- Sign In Modal -->
     <div id="id01" class="modal">
@@ -22,7 +22,7 @@
 
           <br><br>
 
-          <button type="submit" class="btn" name="login_user">Login</button>
+          <button type="submit" class="btn" name="login_user" style="background-color: #C1122B; color: #E5D5B5;">Login</button>
 
           <br><br>
 
@@ -67,7 +67,7 @@
 
           <br><br>
 
-          <button type="submit" class="btn" name="register_user" >Create Account</button>
+          <button type="submit" class="btn" name="register_user" style="background-color: #C1122B; color: #E5D5B5;">Create Account</button>
 
         </div>
 
@@ -79,6 +79,7 @@
       // Get the modal
       var modal = document.getElementById('id01');
       var modal2 = document.getElementById('id02');
+      var modal3 = document.getElementById('id03');
 
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
@@ -87,6 +88,8 @@
           }
           else if (event.target == modal2) {
             modal2.style.display = "none";
+          } else if (event.target == modal3) {
+              modal.style.display = "none";
           }
       }
 

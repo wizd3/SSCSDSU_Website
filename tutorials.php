@@ -28,16 +28,6 @@
   <!--Content of the tutorials page: -->
   <div class="TutorialsDescription">
     <h1>~ Tutorials ~</h1>
-
-    <form autocomplete="off" action="/action_page.php" style="text-align: center;">
-      <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="search" placeholder="Search" style="background-color: #f1f1f1; width: 100%;">
-      </div>
-      <input type="submit" value="Search" style="background-color: #C1122B; color: #fff; cursor: pointer;">
-    </form>
-
-    <script src="autocomplete.js"></script>
-
   </div>
 
   <hr>
