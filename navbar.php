@@ -114,14 +114,14 @@
           <form action = "" method = "post">
             <tr>
                 <td class="LogoutButton">
-                  <button type="submit" class="btn" name="logout_user" style="width:auto;">Logout, <?php echo $_SESSION['username']; ?> </button>
+                  <button type="submit" class="btn" name="logout_user" style="font-size: 15px;background-color: #C1122B;color: #E5D5B5;width:auto;">Logout, <?php echo $_SESSION['username']; ?> </button>
                 </td>
             </tr>
           </form>
         <?php else: ?>
           <tr>
               <td class="LoginButton">
-                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                <button onclick="document.getElementById('id01').style.display='block'" style="font-size: 15px;width:auto;">Login</button>
               </td>
           </tr>
         <?php endif; ?>
