@@ -43,7 +43,7 @@
                       ?> 
                       <form class="Events-Registeration" action = "" method = "post">
                         <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
-                        <input type="submit" name="Register-upcoming" value="Register" style="width: 250px; height: 30px;">
+                        <input type="submit" name="Register-upcoming" value="Subscribe" style="width: 250px; height: 30px;">
                       </form>
                       <?php
                     }
@@ -51,10 +51,18 @@
                       ?>
                       <form class="Events-Registeration" action = "" method = "post">
                         <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
-                        <input type="submit" name="Deregister-upcoming" value="Deregister" style="width: 250px; height: 30px;">
+                        <input type="submit" name="Deregister-upcoming" value="Unsubscribe" style="width: 250px; height: 30px;">
                       </form>
                       <?php
                     }
+                  }
+                  else {
+                      ?> 
+                      <form class="Events-Registeration" action = "" method = "post">
+                        <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
+                        <input type="submit" name="Register-upcoming" value="Subscribe" style="width: 250px; height: 30px;">
+                      </form>
+                      <?php
                   }
             ?>
           </p>
@@ -65,7 +73,7 @@
       ?>
       <hr>
 
-      <p class="subtext">Create an Account to register for upcoming events.</p>
+      <p class="subtext">Create an Account to subscribe for upcoming events.</p>
     </div>
 
 

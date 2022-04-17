@@ -16,30 +16,6 @@
 
 <body>
 
-  <!-- Rate Modal -->
-  <div id="id03" class="modal">
-
-    <form class="modal-content animate" action="" method="post">
-
-      <div class="container" style="text-align: center;">
-        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <br>
-        <label for="quantity"><b>Rate The Event:</b></label>
-        <h6>(Out of 10)</h6>
-
-        <input type="number" id="quantity" name="quantity" min="0" max="10" style="width: 200px;">
-
-        <br><br>
-
-        <button type="submit" class="btn" name="rate" style="width:300px; background-color: #C1122B; color: #E5D5B5;">Rate</button>
-
-      </div>
-
-    </form>
-
-  </div>
-
-
   <!--Navigation Bar -->
   <?php include 'navbar.php';?>
 
@@ -67,88 +43,63 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Eid Al-Adha</td>
-              <td>09/01/2017</td>
-              <td>Town And Country Resort</td>
-              <td>8.1/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Paintball</td>
-              <td>04/14/2019</td>
-              <td>Giant Paintball Park</td>
-              <td>9/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Game Night</td>
-              <td>02/19/2022</td>
-              <td>Aztec Student Union</td>
-              <td>6.7/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
+            <?php 
+            if( isset($_SESSION['userid'])) {
 
-            <tr>
-              <td>Eid Al-Adha</td>
-              <td>09/01/2017</td>
-              <td>Town And Country Resort</td>
-              <td>8.1/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Paintball</td>
-              <td>04/14/2019</td>
-              <td>Giant Paintball Park</td>
-              <td>9/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Game Night</td>
-              <td>02/19/2022</td>
-              <td>Aztec Student Union</td>
-              <td>6.7/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Eid Al-Adha</td>
-              <td>09/01/2017</td>
-              <td>Town And Country Resort</td>
-              <td>8.1/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Paintball</td>
-              <td>04/14/2019</td>
-              <td>Giant Paintball Park</td>
-              <td>9/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Game Night</td>
-              <td>02/19/2022</td>
-              <td>Aztec Student Union</td>
-              <td>6.7/10</td>
-              <td>
-                <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
-              </td>
-            </tr>
+              $query = "SELECT * FROM userevents WHERE userid={$_SESSION['userid']} AND registered = 1 AND upcoming = 0";
+              $past_events = mysqli_query($db, $query);
+              while ($row = $past_events->fetch_array(MYSQLI_ASSOC)) {
+                $event_id = $row["eventid"];
+                $reviewed = !is_null($row["rating"]);
+                $query = "SELECT * FROM events WHERE eventid=$event_id";
+                $event_details = mysqli_query($db, $query);
+                $event = $event_details->fetch_array(MYSQLI_ASSOC);
+                $query = "SELECT ROUND(AVG(rating), 1) AS myAvg FROM userevents WHERE eventid=$event_id";
+                $result = mysqli_query($db, $query);
+                $event_rating = $result->fetch_array(MYSQLI_ASSOC);
+                ?>
+                <tr>
+                  <td> <?php echo $event["eventname"]; ?>  </td>
+                  <td> <?php echo $event["eventdate"]; ?></td>
+                  <td> <?php echo $event["eventlocation"]; ?> </td>
+                  <td> <?php echo $event_rating["myAvg"]; ?> </td>
+                  <?php if($reviewed): ?>
+                    <td> <?php echo $row["rating"]; ?>  </td>
+                  <?php else: ?>
+                    <td>
+                        <!-- Rate Modal -->
+                        <div id="id03" class="modal">
+
+                          <form class="modal-content animate" action="" method="post">
+
+                            <div class="container" style="text-align: center;">
+                              <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                              <br>
+                              <label for="quantity"><b>Rate The Event:</b></label>
+                              <h6>(Out of 10)</h6>
+                              <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >  
+                              <input type="number" id="quantity" name="quantity" min="0" max="10" style="width: 200px;">
+
+                              <br><br>
+
+                              <button type="submit" class="btn" name="rate" style="width:300px; background-color: #C1122B; color: #E5D5B5;">Rate</button>
+
+                            </div>
+
+                          </form>
+
+                        </div>
+
+                      <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
+                    </td>
+                  <?php endif; ?> 
+                </tr>
+
+                <?php
+              }
+            }
+
+            ?>
 
           </tbody>
         </table>

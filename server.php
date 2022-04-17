@@ -77,12 +77,24 @@ if (isset($_POST['logout_user'])) {
   header("location: index.php");
 }
 
+//Rate for event
+if (isset($_POST['rate'])) {
+    $event_id = (int)$_POST['event_id'];
+    $query = "UPDATE userevents set rating = {$_POST['quantity']} WHERE userid = {$_SESSION['userid']} AND eventid = $event_id";
+    $result = mysqli_query($db, $query);
+}
+
 
 //Register for event
 if (isset($_POST['Register-upcoming'])) {
-  $event_id = (int)$_POST['event_id'];
-  $query = "UPDATE userevents set registered = 1 WHERE userid = {$_SESSION['userid']} AND eventid = $event_id";
-  $result = mysqli_query($db, $query);
+  if( isset($_SESSION['userid'])) {
+    $event_id = (int)$_POST['event_id'];
+    $query = "UPDATE userevents set registered = 1 WHERE userid = {$_SESSION['userid']} AND eventid = $event_id";
+    $result = mysqli_query($db, $query);
+  }
+  else{
+    alert("Login or register to subscribe");
+  }
 }
 
 //Deregister for event
