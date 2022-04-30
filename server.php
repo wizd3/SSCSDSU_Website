@@ -54,17 +54,17 @@ if (isset($_POST['register_user'])) {
   	$result = mysqli_query($db, $query);
   	$_SESSION['username'] = $firstname;
     $_SESSION['userid'] = mysqli_insert_id($db);
+
+    // Add the user to all upcoming events to userevents table
+    $event_register = "SELECT eventid FROM events WHERE upcoming=1";
+    $result = mysqli_query($db, $event_register);
+
+    while ($row = $result->fetch_array(MYSQLI_NUM)) {
+      $event_id = $row[0];
+      $query = "INSERT INTO userevents (userid, eventid, upcoming, registered)
+            VALUES('{$_SESSION['userid']}', '$event_id', '1', '0')";
+      mysqli_query($db, $query);
   }
-
-// Add the user to all upcoming events to userevents table
-$event_register = "SELECT eventid FROM events WHERE upcoming=1";
-$result = mysqli_query($db, $event_register);
-
-while ($row = $result->fetch_array(MYSQLI_NUM)) {
-  $event_id = $row[0];
-  $query = "INSERT INTO userevents (userid, eventid, upcoming, registered)
-        VALUES('{$_SESSION['userid']}', '$event_id', '1', '0')";
-  mysqli_query($db, $query);
 }
 
 }

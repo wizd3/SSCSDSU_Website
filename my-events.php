@@ -46,10 +46,11 @@
             <?php 
             if( isset($_SESSION['userid'])) {
 
-              $query = "SELECT * FROM userevents WHERE userid={$_SESSION['userid']} AND registered = 1 AND upcoming = 0";
+              $query = "SELECT * FROM userevents WHERE userid={$_SESSION['userid']} AND registered = 1";
               $past_events = mysqli_query($db, $query);
               while ($row = $past_events->fetch_array(MYSQLI_ASSOC)) {
                 $event_id = $row["eventid"];
+                $upcoming = $row["upcoming"];
                 $reviewed = !is_null($row["rating"]);
                 $query = "SELECT * FROM events WHERE eventid=$event_id";
                 $event_details = mysqli_query($db, $query);
@@ -64,9 +65,9 @@
                   <td> <?php echo $event["eventlocation"]; ?> </td>
                   <td> <?php echo $event_rating["myAvg"]; ?> </td>
                   <?php if($reviewed): ?>
-                    <td> <?php echo $row["rating"]; ?>  </td>
-                  <?php else: ?>
-                    <td>
+                    <td width="200px"> <?php echo $row["rating"]; ?>  </td>
+                  <?php elseif(!$upcoming): ?>
+                    <td width="200px">
                         <!-- Rate Modal -->
                         <div id="id03" class="modal">
 
@@ -81,16 +82,22 @@
                               <input type="number" id="quantity" name="quantity" min="0" max="10" style="width: 200px;">
 
                               <br><br>
-
-                              <button type="submit" class="btn" name="rate" style="width:300px; background-color: #C1122B; color: #E5D5B5;">Rate</button>
-
+                                <button type="submit" class="btn" name="rate" style="width:300px; background-color: #C1122B; color: #E5D5B5;">Rate</button>
                             </div>
 
                           </form>
 
                         </div>
 
-                      <button onclick="document.getElementById('id03').style.display='block'">Rate</button>
+                      <button onclick="document.getElementById('id03').style.display='block'" style="width:100%;">Rate</button>
+                    </td>
+
+                  <?php else: ?>
+                    <td width="200px">
+                      <form class="Events-Registeration" action = "" method = "post">
+                        <input type="hidden" name = "event_id" value ="<?php echo $event_id; ?>" >
+                        <button name="Deregister-upcoming" style="width:200px;">Unsubscribe</button>
+                      </form> 
                     </td>
                   <?php endif; ?> 
                 </tr>
